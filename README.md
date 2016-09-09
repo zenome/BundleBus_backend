@@ -8,7 +8,7 @@ This server clones the source code from git repository, builds the source code a
 > mongod --dbpath={your db path}
 ~~~~
 * Download/clone the source
-~~~~
+
 * Download packages by below comment in a root directory.
 ~~~~
 > npm install
