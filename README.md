@@ -29,13 +29,11 @@ This server clones the source code from git repository, builds the source code a
 ~~~~
 
 ## Common response ##
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 status    | Integer    | true      | 0 : Success, Otherwise : Error
 message   | String     | true      | Short description
 result    | Object     | false     | Object. It depends on the request/error.
-~~~~
 
 ## APIs ##
 
@@ -53,7 +51,6 @@ http://{server_address}:{port}/api/register
 ~~~~
 
 #### GET : Response format
-~~~~
 JSON key    | Type       | Mandatory | Description
 ------------| -----------|-----------|-------------
 _id         | String     | true      | ID delivered from a server side
@@ -62,19 +59,15 @@ cloneurl    | String     | true      | repository url
 appname     | String     | true      | app name
 appkey      | String     | true      | app key
 status      | String     | true      | release status
-~~~~
 
 #### POST : Request format
-~~~~
 JSON key    | Type       | Mandatory | Description
 ------------| -----------|-----------|-------------
 github_token| String     | true      | access token for repository on github
 cloneurl    | String     | true      | repository url
 appname     | String     | true      | app name(name in package.json)
-~~~~
 
 #### POST : Response format
-~~~~
 JSON key    | Type       | Mandatory | Description
 ------------| -----------|-----------|-------------
 github_token| String     | true      | access token for repository on github
@@ -82,7 +75,6 @@ cloneurl    | String     | true      | repository url
 appname     | String     | true      | app name
 appkey      | String     | true      | app key
 status      | String     | true      | release status
-~~~~
 
 
 ### api/release ###
@@ -99,7 +91,6 @@ http://{server_address}:{port}/api/release
 ~~~~
 
 #### GET : Response format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
@@ -111,22 +102,17 @@ publish   | String     | true      | can be 'release' || 'deploy'
 os        | String     | true      | can be 'ios' || 'android'
 vfrom     | String     | false     | version to patch from
 vto       | String     | false     | version to patch
-~~~~
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
-~~~~
 
 #### POST : Response format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 status    | Number     | true      | result code
 appkey    | String     | true      | app key to identify
-~~~~
 
 
 ### api/notdeployedlist ###
@@ -136,16 +122,13 @@ appkey    | String     | true      | app key to identify
 POST method will return release type of apps list from server.
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
 appversion| String     | true      | app version
 os        | String     | true      | can be 'ios' || 'android'
-~~~~
 
 #### POST : Response format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
@@ -157,7 +140,6 @@ publish   | String     | true      | can be 'release' || 'deploy'
 os        | String     | true      | can be 'ios' || 'android'
 vfrom     | String     | false     | version to patch from
 vto       | String     | false     | version to patch
-~~~~
 
 
 ### api/status ###
@@ -167,14 +149,11 @@ vto       | String     | false     | version to patch
 POST method will return all information for a certain app.
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
-~~~~
 
 #### POST : Response format
-~~~~
 JSON key    | Type       | Mandatory | Description
 ------------| -----------|-----------|-------------
 _id         | String     | true      | ID delivered from a server side
@@ -183,7 +162,6 @@ cloneurl    | String     | true      | repository url
 appname     | String     | true      | app name
 appkey      | String     | true      | app key
 status      | String     | true      | release status
-~~~~
 
 
 ### api/deploy ###
@@ -200,7 +178,6 @@ http://{server_address}:{port}/api/deploy/?appversion={app_version}
 ~~~~
 
 #### GET : Response format
-~~~~
 * Success : Publish array will be delivered in Common Response's result
 * Publish :
 JSON key  | Type       | Mandatory | Description
@@ -214,10 +191,9 @@ publish   | String     | true      | can be 'release' || 'deploy'
 os        | String     | true      | can be 'ios' || 'android'
 vfrom     | String     | false     | 
 vto       | String     | false     | Let me ask it to my coworker :)
-~~~~
+
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 _id       | String     | true      | ID delivered from a server side
@@ -229,7 +205,6 @@ publish   | String     | true      | can be 'release' || 'deploy'
 os        | String     | true      | can be 'ios' || 'android'
 vfrom     | String     | false     | Let me ask it to my coworker :)
 vto       | String     | false     | Let me ask it to my coworker :)
-~~~~
 
 #### POST : Response format
 * Success : Common response with code 0. `result` will be null.
@@ -243,7 +218,6 @@ vto       | String     | false     | Let me ask it to my coworker :)
 POST methos of this api compares the old version and new version and builds patch set. The server bundles patch set and updated resources into a downloadable file, if there is a new version.
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
@@ -251,10 +225,8 @@ os        | String     | true      | can be 'ios' || 'android'
 appversion| String     | true      | app version
 type      | String     | true      | 'release' or 'deploy'
 timestamp | Number     | true      | millisecond when the app is released
-~~~~
 
 #### POST : Response format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 status    | Number     | true      | result code
@@ -262,19 +234,16 @@ action    | String     | true      | 'noupdate', 'download', 'patch'
 url       | String     | true      | url for download or patch
 appversion| String     | true      | app version
 key       | Number     | true      | key when the app is released
-~~~~
 
 ### api/downloadBundle ###
 #### Description
 * 'api/downloadBundle' transfers the bundle or patch set and resoruces as a tar-gz format to the client.
 
 #### POST : Request format
-~~~~
 JSON key  | Type       | Mandatory | Description
 --------- | -----------|-----------|-------------
 appkey    | String     | true      | app key to identify
 timestamp | Number     | true      | millisecond when the app is released
-~~~~
 
 #### POST : Response format
 tar-gz format of file as application/octet-stream content-type.
