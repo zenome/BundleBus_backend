@@ -2,6 +2,18 @@
 BundleBus is a module to help the react-native application developers to easily release/deploy their application. 
 This server clones the source code from git repository, builds the source code and provides bundle or patch set for app to the client.
 
+## Environment ##
+* react-native-cli
+~~~~
+npm install react-native-cli -g
+~~~~
+
+* XCode command line tool (MacOS X only)
+~~~~
+xcode-select --install
+~~~~
+
+
 ## How to run it ##
 * Run mongo db
 ~~~~
