@@ -22,7 +22,8 @@
     "morgan": "~1.6.1",
     "node-uuid": "^1.4.7",
     "nodegit": "^0.14.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "mkdirp": "*"
   },
   "devDependencies": {
     "chai": "^3.5.0",
